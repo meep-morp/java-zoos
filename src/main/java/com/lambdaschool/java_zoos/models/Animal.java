@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "animal")
+@Table(name = "animals")
 public class Animal extends Auditable {
 
     @Id
@@ -17,21 +17,29 @@ public class Animal extends Auditable {
     private String animaltype;
 
     @OneToMany(mappedBy = "animal",
-                cascade = CascadeType.ALL,
-                orphanRemoval = true)
+                cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = "animal",
                         allowSetters = true)
     private Set<ZooAnimals> zoos = new HashSet<>();
 
     // Constructors
 
-    public Animal(String animaltype) {
+    public Animal(String animaltype, Set<ZooAnimals> zoos) {
         this.animaltype = animaltype;
+        this.zoos = zoos;
     }
 
     public Animal() {
     }
     // Getters and Setters
+
+    public Set<ZooAnimals> getZoos() {
+        return zoos;
+    }
+
+    public void setZoos(Set<ZooAnimals> zoos) {
+        this.zoos = zoos;
+    }
 
     public long getAnimalid() {
         return animalid;

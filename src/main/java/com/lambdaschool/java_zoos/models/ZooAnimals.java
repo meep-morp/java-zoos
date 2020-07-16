@@ -13,13 +13,18 @@ public class ZooAnimals extends Auditable implements Serializable {
     @Id
     @ManyToOne
     @JoinColumn(name = "zooid")
-    @JsonIgnoreProperties(value = "", allowSetters = true)
+    @JsonIgnoreProperties(value = "animals", allowSetters = true)
     private Zoo zoo;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "animalid")
+    @JsonIgnoreProperties(value = "zoos", allowSetters = true)
     private Animal animal;
+
+//    @ManyToOne
+//    @JoinColumn(name = "zooname")
+//    private Zoo incomingzoo;
 
     // Constructors
 

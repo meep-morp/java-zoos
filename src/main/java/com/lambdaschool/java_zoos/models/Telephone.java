@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "telephone")
+@Table(name = "telephones")
 public class Telephone extends Auditable {
 
     @Id
@@ -24,16 +24,25 @@ public class Telephone extends Auditable {
     private Zoo zoo;
 
     // Constructors
-
-    public Telephone(String phonetype, String phonenumber) {
+    public Telephone(String phonetype, String phonenumber, Zoo zoo) {
         this.phonetype = phonetype;
         this.phonenumber = phonenumber;
+        this.zoo = zoo;
     }
 
     public Telephone() {
     }
 
     // Getters and Setters
+
+    public Zoo getZoo() {
+        return zoo;
+    }
+
+    public void setZoo(Zoo zoo) {
+        this.zoo = zoo;
+    }
+
     public long getPhoneid() {
         return phoneid;
     }
