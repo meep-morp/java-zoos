@@ -47,7 +47,7 @@ public class ZooController {
                 .toUri();
         responseHeaders.setLocation(newZooURI);
 
-        return new ResponseEntity<>(null ,responseHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(null ,responseHeaders, HttpStatus.CREATED);
     }
 //    PUT /zoos/zoo/{id} - Completely replace the zoo record and all accompany records based off of the given zoo id.
     @PutMapping(value = "/zoo/{id}", consumes = "application/json")

@@ -68,9 +68,9 @@ public class ZooServicesImpl implements ZooServices {
     public Zoo update(Zoo zoo, long id) {
         Zoo newZoo = new Zoo();
 
-            zoorepo.findById(zoo.getZooid())
-                    .orElseThrow(() -> new EntityNotFoundException(String.format("Zoo %s not found.", zoo.getZooid())));
-            newZoo.setZooid(zoo.getZooid());
+            zoorepo.findById(id)
+                    .orElseThrow(() -> new EntityNotFoundException(String.format("Zoo %s not found.", id)));
+            newZoo.setZooid(id);
 
         if(zoo.getZooname() != null) {
             newZoo.setZooname(zoo.getZooname());
