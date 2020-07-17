@@ -7,6 +7,7 @@ import com.lambdaschool.java_zoos.views.AnimalCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service(value = "animalServices")
@@ -23,5 +24,10 @@ public class AnimalServicesImpl implements AnimalServices {
     @Override
     public Animal transferZoo(long id, Zoo zoo) {
         return null;
+    }
+
+    @Override
+    public Animal findAnimalById(long id) {
+        return animalrepos.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format("Animal %s not found", id)));
     }
 }

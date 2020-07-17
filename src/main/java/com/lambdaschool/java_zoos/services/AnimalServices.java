@@ -11,4 +11,5 @@ import java.util.List;
 public interface AnimalServices {
     List<AnimalCount> getCount();
     Animal transferZoo(long id, Zoo zoo);
+    Animal findAnimalById(long id);
 }
